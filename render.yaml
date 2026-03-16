@@ -3,6 +3,8 @@ services:
   name: minio-server
   healthCheckPath: /minio/health/live
   runtime: image
+  region: ohio
+  plan: starter
   image:
     url: docker.io/minio/minio:RELEASE.2025-09-07T16-13-09Z
   dockerCommand: minio server /data --address $HOST:$PORT --console-address $HOST:$CONSOLE_PORT
@@ -34,6 +36,8 @@ services:
 - type: web
   name: minio-console
   runtime: docker
+  region: ohio
+  plan: starter
   dockerContext: /
   dockerfilePath: ./Dockerfile
   autoDeploy: false
